@@ -22,12 +22,15 @@ pipeline {
     }
 
     post {
+        always {
+            sleep time: 20, unit: 'SECONDS'
+        }
         success {
             // send massage to slack channel
             echo 'Build succeeded. Deploying...'
         }
         failure {
-              echo 'Build failed. Sending notifications...'
+            echo 'Build failed. Sending notifications...'
         }
     }
 }
