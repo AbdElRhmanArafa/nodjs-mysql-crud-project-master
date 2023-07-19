@@ -24,8 +24,10 @@ pipeline {
     post {
         success {
             // send massage to slack channel
+            echo 'Build succeeded. Deploying...'
         }
         failure {
+              echo 'Build failed. Sending notifications...'
         }
     }
 }
