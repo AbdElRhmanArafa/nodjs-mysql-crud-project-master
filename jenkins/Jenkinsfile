@@ -16,15 +16,14 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'npm run start '
+                timeout(time: 20, unit: 'SECONDS') {
+                    sh 'npm run start '
+                }
             }
         }
     }
 
     post {
-        always {
-            sleep time: 20, unit: 'SECONDS'
-        }
         success {
             // send massage to slack channel
             echo 'Build succeeded. Deploying...'
