@@ -1,1 +1,12 @@
-# here is jenkins pipline 
+// here is jenkins pipline
+pipeline {
+    agent {
+        label = 'node.js'
+    }
+    stages {
+        stage('github') {
+            git branch: 'main', credentialsId: 'd15798d4-dfa9-4d95-80fa-166ff008a415', url: 'https://github.com/AbdElRhmanArafa/nodjs-mysql-crud-project-master'
+        }
+        
+    }
+}
